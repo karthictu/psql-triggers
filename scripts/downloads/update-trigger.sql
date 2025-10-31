@@ -3,7 +3,7 @@ CREATE OR REPLACE FUNCTION myschema.update_destination_table()
 RETURNS TRIGGER AS $$
 BEGIN
     UPDATE myschema.destination_table
-	    SET current_status=NEW.current_status, invoice_payment_term=NEW.invoice_payment_term, cbu_name=NEW.cbu_name, cbu_id=NEW.cbu_id,
+	    SET current_status=NEW.current_status, party_code=NEW.party_code,
             receiver_city_code=NEW.transportation->>'receiverCityCode', receiver_city_name=NEW.transportation->>'receiverCityName',
             sender_city_code=NEW.transportation->>'senderCityCode', sender_city_name=NEW.transportation->>'senderCityName'
             user_id=NEW.user_id, comments=NEW.comments, total_amount=NEW.total_amount, currency_code=NEW.currency_code,
